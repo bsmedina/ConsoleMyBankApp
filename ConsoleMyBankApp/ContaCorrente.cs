@@ -21,6 +21,30 @@ namespace ConsoleMyBankApp
             this.setConta(conta);
         }
 
+        public double Depositar(double valor)
+        {
+            if(valor <= 0)
+            {
+                return 0;
+            } else {
+                this.saldo += valor;
+            }
+
+            return this.saldo;
+        }
+
+        public double Sacar(double valor)
+        {
+            if(valor > this.saldo)
+            {
+                Console.WriteLine("Você não possui saldo suficiente para essa transação. Verifique o seu saldo!");
+            } else {
+                this.saldo -= valor;
+            }
+
+            return this.saldo;
+        }
+
         public Cliente getTitular()
         {
             return this.titular;
